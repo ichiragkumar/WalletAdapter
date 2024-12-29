@@ -26,15 +26,12 @@ function App() {
 
 
 function Wallet (){
-  const newtwrok = WalletAdapterNetwork.Devnet;
-  const endPoint = useMemo(() => clusterApiUrl(newtwrok), [newtwrok]);
 
-  const wallets = useMemo(()=> [new UnsafeBurnerWalletAdapter()],[newtwrok])
   return (
-   <ConnectionProvider endpoint={endPoint}>
-      <WalletProvider wallets={wallets} autoConnect>
+   <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
+      <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
-          <WalletMultiButton />
+          <WalletMultiButton /> 
           <WalletDisconnectButton />
         </WalletModalProvider>
       </WalletProvider>
